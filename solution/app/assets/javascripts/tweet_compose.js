@@ -22,6 +22,7 @@ $.TweetCompose.prototype.clearInput = function () {
   this.$input.val("");
   this.$mentionedUsersDiv.find("ul").empty();
   this.$el.find(":input").prop("disabled", false);
+  this.$el.find(".char-left").empty();
 };
 
 $.TweetCompose.prototype.handleInput = function (event) {
