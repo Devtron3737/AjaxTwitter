@@ -14,7 +14,7 @@ $.FollowToggle.prototype.handleClick = function (event) {
   event.preventDefault();
 
   if (this.followState == "followed") {
-    this.followState = "following";
+    this.followState = "unfollowing";
     this.render();
 
     $.ajax({
@@ -27,7 +27,7 @@ $.FollowToggle.prototype.handleClick = function (event) {
       }
     });
   } else if (this.followState == "unfollowed") {
-    this.followState = "unfollowing";
+    this.followState = "following";
     this.render();
 
     $.ajax({
