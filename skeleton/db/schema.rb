@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140829022442) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "follows", force: true do |t|
     t.integer  "followee_id", null: false
     t.integer  "follower_id", null: false
@@ -23,9 +20,9 @@ ActiveRecord::Schema.define(version: 20140829022442) do
     t.datetime "updated_at"
   end
 
-  add_index "follows", ["followee_id", "follower_id"], name: "index_follows_on_followee_id_and_follower_id", unique: true, using: :btree
-  add_index "follows", ["followee_id"], name: "index_follows_on_followee_id", using: :btree
-  add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
+  add_index "follows", ["followee_id", "follower_id"], name: "index_follows_on_followee_id_and_follower_id", unique: true
+  add_index "follows", ["followee_id"], name: "index_follows_on_followee_id"
+  add_index "follows", ["follower_id"], name: "index_follows_on_follower_id"
 
   create_table "mentions", force: true do |t|
     t.integer  "tweet_id",   null: false
@@ -34,9 +31,9 @@ ActiveRecord::Schema.define(version: 20140829022442) do
     t.datetime "updated_at"
   end
 
-  add_index "mentions", ["tweet_id", "user_id"], name: "index_mentions_on_tweet_id_and_user_id", unique: true, using: :btree
-  add_index "mentions", ["tweet_id"], name: "index_mentions_on_tweet_id", using: :btree
-  add_index "mentions", ["user_id"], name: "index_mentions_on_user_id", using: :btree
+  add_index "mentions", ["tweet_id", "user_id"], name: "index_mentions_on_tweet_id_and_user_id", unique: true
+  add_index "mentions", ["tweet_id"], name: "index_mentions_on_tweet_id"
+  add_index "mentions", ["user_id"], name: "index_mentions_on_user_id"
 
   create_table "tweets", force: true do |t|
     t.text     "content",    null: false
@@ -45,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140829022442) do
     t.datetime "updated_at"
   end
 
-  add_index "tweets", ["user_id"], name: "index_tweets_on_user_id", using: :btree
+  add_index "tweets", ["user_id"], name: "index_tweets_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username",        null: false
@@ -55,6 +52,6 @@ ActiveRecord::Schema.define(version: 20140829022442) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true
 
 end

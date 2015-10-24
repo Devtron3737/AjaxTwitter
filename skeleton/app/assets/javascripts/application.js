@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require serialize_json
+//= require follow_toggle
+//= require tweet_compose
+//= require users_search
+// require_tree .
